@@ -1,14 +1,11 @@
 import './App.css';
+import { useState } from 'react';
 
-function MyButton() {
-
-  function handleClick() {
-    alert("I'm a button !");
-  }
+function MyButton({ count, onClick }) {
 
   return (
-    <button onClick={handleClick}>
-      I'm a button
+    <button onClick={onClick}>
+      Clicked {count} times
     </button>
 
   );
@@ -62,10 +59,25 @@ function ShoppingList() {
 
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+  function onClick() {
+    setCount(count + 1);
+
+  }
+
   return (
     <>
-      <MyButton />
 
+      <h1>Counters that update separately</h1>
+      <MyButton count={count} onClick={onClick} />
+      <MyButton count={count} onClick={onClick} />
+      <MyButton count={count} onClick={onClick} />
+
+<br>
+
+</br>
       <ShoppingList />
 
       <Toolbar />
