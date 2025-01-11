@@ -4,5 +4,8 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
+	"mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+	],
   "remoteUser": "node"
 }
